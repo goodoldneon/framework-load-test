@@ -5,11 +5,13 @@ name = "pypi"
 
 [packages]
 flask = "*"
+tornado = "*"
 
 [dev-packages]
 mypy = "*"
 pylint = "*"
 black = "*"
+types-tornado = "*"
 
 [requires]
 python_version = "3.9"
