@@ -1,0 +1,3 @@
+mypy==0.930
+pylint==2.12.2
+types-waitress==2.0.5

@@ -1,7 +1,10 @@
 {
-  "name": "python-server-load-test",
+  "name": "server-load-test",
   "version": "1.0.0",
   "devDependencies": {
     "@types/k6": "^0.35.2"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
   }
 }
