@@ -20,6 +20,9 @@ Run `docker build . -t server-load-test` to build the server Docker image.
    # Flask with Waitress
    $ docker run -i -p=0.0.0.0:8080:8080 --cpus=1 server-load-test python server/flask_waitress_server.py
 
+   # Gin
+   $ docker run -i -p=0.0.0.0:8080:8080 --cpus=1 server-load-test server/gin_server
+
    # Tornado
    $ docker run -i -p=0.0.0.0:8080:8080 --cpus=1 server-load-test python tornado_server.py
    ```
