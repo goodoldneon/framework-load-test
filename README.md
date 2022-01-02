@@ -6,9 +6,9 @@ Simple (and probably reductive) repo for load testing HTTP server frameworks.
 
 Run `docker build . -t server-load-test` to build the server Docker image.
 
-## Testing
+## Usage
 
-1. Start the server you want to load test.
+1. Start the server you want to load test:
 
    ```bash
    # Express
@@ -29,13 +29,25 @@ Run `docker build . -t server-load-test` to build the server Docker image.
 
 1. Run `load-tester/main.ts` in a `loadimpact/k6` Docker container. Some example usage:
 
-```sh
-# 1000 requests
-docker run -i loadimpact/k6 run - <load-tester/main.ts -i 1000
+   ```sh
+   # 1000 requests
+   docker run -i loadimpact/k6 run - <load-tester/main.ts -i 1000
 
-# 1000 requests split between 2 users
-docker run -i loadimpact/k6 run - <load-tester/main.ts -i 1000 -u 2
+   # 1000 requests split between 2 users
+   docker run -i loadimpact/k6 run - <load-tester/main.ts -i 1000 -u 2
 
-# View K6 help
-docker run -i loadimpact/k6 run -h
-```
+   # View K6 help
+   docker run -i loadimpact/k6 run -h
+   ```
+
+## Results
+
+The following table shows requests/second for 10k requests. The tests were run on a 2.6 Ghz i7 MacBook Pro.
+
+| Framework         | 1 User | 5 Users | 10 Users |
+| ----------------- | ------ | ------- | -------- |
+| Express           | 620    | 1970    | 2520     |
+| Flask             | 270    | Failed  | Failed   |
+| Flask w/ Waitress | 500    | 1070    | 1090     |
+| Gin               | 590    | 1620    | 2230     |
+| Tornado           | 560    | 1570    | 1790     |
